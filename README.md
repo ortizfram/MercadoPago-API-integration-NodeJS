@@ -93,7 +93,7 @@ module.exports = app;
 
 > create `.env` file and paste your own token
 
-```
+```git
 ACCESS_TOKEN=YOUR_ACCESS_TOKEN
 ```
 
@@ -109,48 +109,7 @@ node_modules/
 
 ```
 
-# add checkout button and redirect
-
-```index.js
-
-// SDK MercadoPago.js
-<script src="https://sdk.mercadopago.com/js/v2"></script>
-
-```
-
-# Connection and Transaction
-
-body-parse html content of form to the backend
-
-below the require('mercadopago')
-
-```
-// middleware
-
-app.use(bodyParser.urlencoded({ extended: false }))
-```
-
-- below the `mercadopago.preferences.create(preference) .then`
-
-```js
-console.log(response.body);
-res.send("checkout");
-```
-
-> http://localhost:3000/checkout must see 'checkout'
-
-# Redirect
-
-- .then when preference is created, change `send` for `redirect` (comment it)
-  with the `init_point` URL of production when asking to mercadopago backend item on sale
-
-- change on //route the `get` for a `all` '/checkout'
-
-- remove `method="POST"` from the fomr on the index.js
-
-```js
-res.redirect(response.body.init_point);
-```
+# config proyect : REQUESTS
 
 ## :anchor: run next server
 
