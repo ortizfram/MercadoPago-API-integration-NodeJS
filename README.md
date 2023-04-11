@@ -99,6 +99,16 @@ ACCESS_TOKEN=YOUR_ACCESS_TOKEN
 
 > .gitignore
 
+```.gitignore
+# node
+node_modules/
+
+# environment variables
+.env
+.env.local
+
+```
+
 # add checkout button and redirect
 
 ```index.js
