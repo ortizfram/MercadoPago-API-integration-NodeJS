@@ -1,10 +1,10 @@
-const express = requiere("express");
-const path = requiere("path");
-const cookieParser = requiere("cookie-parser");
-const logger = requiere("morgan");
-const dotenv = requiere("dotenv");
+const express = require("express");
+const path = require("path");
+const cookieParser = require("cookie-parser");
+const logger = require("morgan");
+const dotenv = require("dotenv");
 
-const indexRouter = requiere("./routes/index");
+const indexRouter = require("./routes/index");
 
 const app = express();
 

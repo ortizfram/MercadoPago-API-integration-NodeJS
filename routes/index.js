@@ -1,22 +1,24 @@
 const express = require("express");
 const router = express.Router();
 
-const PaymentController = require("../Controllers/PaymentsController");
-const PaymentsService = require("../Services/PaymentsService");
-const PaymentInstance = new PaymentController(new PaymentsService());
+const PaymentController = require("../controllers/PaymentController");
+const PaymentService = require("../services/PaymentService");
 
-// routes -------------------------------------------------
-/* GET home page. */
+const PaymentInstance = new PaymentController(new PaymentService());
+
 router.get("/", function (req, res, next) {
-  res.render("index", { title: "Express" });
+  return res.json({
+    "/payment": "generates a payment link",
+    "/subscription": "generates a subscription link"
+  });
 });
 
 router.get("/payment", function (req, res, next) {
-  PaymentInstance.createPayment(req, res);
+  PaymentInstance.getPaymentLink(req, res);
 });
 
 router.get("/subscription", function (req, res, next) {
-  PaymentInstance.createSubscription(req, res);
+  PaymentInstance.getSubscriptionLink(req, res);
 });
 
 module.exports = router;
