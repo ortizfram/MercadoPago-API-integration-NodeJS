@@ -1,3 +1,4 @@
+// components/MercadoPagoButton.js
 import React, { useEffect } from "react";
 
 const MercadoPagoButton = ({ preapprovalPlanId }) => {

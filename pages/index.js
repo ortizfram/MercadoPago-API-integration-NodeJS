@@ -1,20 +1,35 @@
-import MercadoPagoButton from "./components/MercadoPagoButton";
+import React, { useState, useEffect } from "react";
+import PostFeature from "../components/PostFeature";
+
+const posts = [
+  {
+    id: 1,
+    title: "Post 1",
+    description: "This is the description for post 1.",
+    imageSrc: "/post1.jpg",
+  },
+  {
+    id: 2,
+    title: "Post 2",
+    description: "This is the description for post 2.",
+    imageSrc: "/post2.jpg",
+  },
+  {
+    id: 3,
+    title: "Post 3",
+    description: "This is the description for post 3.",
+    imageSrc: "/post3.jpg",
+  },
+];
 
 export default function Home() {
   return (
-    <main className="px-4 sm:px-6 lg:px-[300px] py-6 mx-auto mt-6">
-      <div className="flex flex-col sm:flex-row gap-x-3 gap-y-6 justify-between">
-        {/* semanal plan  */}
-        <div className="flex flex-col gap-4 items-center">
-          <h3 className="text-3xl">Medi Semanal || Plan</h3>
-          <MercadoPagoButton preapprovalPlanId="2c938084877015bc0187758342cb029d" />
+    <div className="flex flex-wrap justify-center pt-[200px] mx-auto">
+      {posts.map((post) => (
+        <div className="m-4" key={post.id}>
+          <PostFeature post={post} />
         </div>
-        {/* superior plan */}
-        <div className="flex flex-col gap-4 mt-6 sm:mt-0 items-center">
-          <h3 className="text-3xl">Superior || Plan</h3>
-          <MercadoPagoButton preapprovalPlanId="2c9380848774cf5e018775a33f280034" />
-        </div>
-      </div>
-    </main>
+      ))}
+    </div>
   );
 }
